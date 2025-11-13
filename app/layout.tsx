@@ -16,6 +16,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "FulcrumHQ - Common Data Environment for Enterprise",
   description: "Multi-project delivery management for Developers, Main Contractors, and Consultants",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function RootLayout({
