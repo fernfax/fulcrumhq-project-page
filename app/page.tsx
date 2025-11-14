@@ -7,14 +7,24 @@ import { Search, ChevronLeft, ChevronRight, Users as UsersIcon, Building, FileTe
 import { useState, useMemo } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import dynamic from 'next/dynamic';
+import { ProjectDetailsSection } from "@/components/ProjectDetailsSection";
 import 'swiper/css';
 import 'swiper/css/navigation';
+
+// Dynamically import the map component with SSR disabled (Leaflet requires window object)
+const SingaporeMap = dynamic(
+  () => import('@/components/SingaporeMap').then(mod => mod.SingaporeMap),
+  { ssr: false }
+);
 
 const projects = [
   {
     id: "AMKI",
     name: "Ang Mo Kio Infra",
     location: "Singapore",
+    latitude: 1.3691,
+    longitude: 103.8454,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 68,
@@ -32,6 +42,8 @@ const projects = [
     id: "TL4",
     name: "Infra at Tuas Link 4",
     location: "Singapore",
+    latitude: 1.2943,
+    longitude: 103.6359,
     status: "Planning",
     statusColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     progress: 45,
@@ -49,6 +61,8 @@ const projects = [
     id: "LDI",
     name: "Loyang Drive (North) Infra",
     location: "Singapore",
+    latitude: 1.3812,
+    longitude: 103.9665,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 72,
@@ -61,6 +75,8 @@ const projects = [
     id: "LNS",
     name: "Loyang North Substation",
     location: "Singapore",
+    latitude: 1.3754,
+    longitude: 103.9701,
     status: "Hold",
     statusColor: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
     progress: 22,
@@ -73,6 +89,8 @@ const projects = [
     id: "AS4D",
     name: "Aerospace 4 (Design) - Multiple",
     location: "Singapore",
+    latitude: 1.3521,
+    longitude: 103.7234,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 35,
@@ -83,6 +101,8 @@ const projects = [
     id: "BP2C",
     name: "Bulim Ph2 Main Infra (Construction)",
     location: "Singapore",
+    latitude: 1.3423,
+    longitude: 103.7101,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 58,
@@ -93,6 +113,8 @@ const projects = [
     id: "BP2D",
     name: "Bulim Ph2 Main Infra (Design) - Multiple",
     location: "Singapore",
+    latitude: 1.3398,
+    longitude: 103.7165,
     status: "Planning",
     statusColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     progress: 42,
@@ -103,6 +125,8 @@ const projects = [
     id: "AMK2D",
     name: "Space @ AMK2 (Design) - Multiple",
     location: "Singapore",
+    latitude: 1.3645,
+    longitude: 103.8521,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 28,
@@ -113,6 +137,8 @@ const projects = [
     id: "KAEC",
     name: "Infrastructure at Kolam Ayer Estate (Construction)",
     location: "Singapore",
+    latitude: 1.3189,
+    longitude: 103.8701,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 65,
@@ -123,6 +149,8 @@ const projects = [
     id: "KAED",
     name: "Infrastructure at Kolam Ayer Estate (Design) - Multiple",
     location: "Singapore",
+    latitude: 1.3167,
+    longitude: 103.8745,
     status: "Completed",
     statusColor: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
     progress: 51,
@@ -133,6 +161,8 @@ const projects = [
     id: "ARPE",
     name: "Ayer Rajah Precinct Enhancements",
     location: "Singapore",
+    latitude: 1.2967,
+    longitude: 103.7865,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 83,
@@ -143,6 +173,8 @@ const projects = [
     id: "BLS",
     name: "Bulim Square",
     location: "Singapore",
+    latitude: 1.3512,
+    longitude: 103.7187,
     status: "Planning",
     statusColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     progress: 47,
@@ -153,6 +185,8 @@ const projects = [
     id: "AMGI2A",
     name: "Ground Improvement Works at Ayer Merbau Road",
     location: "Singapore",
+    latitude: 1.3234,
+    longitude: 103.7123,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 91,
@@ -163,6 +197,8 @@ const projects = [
     id: "RRG1BA",
     name: "Group 1B R&R (Part A) – MIE",
     location: "Singapore",
+    latitude: 1.3298,
+    longitude: 103.8623,
     status: "Hold",
     statusColor: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
     progress: 76,
@@ -173,6 +209,8 @@ const projects = [
     id: "RRG1BB",
     name: "Group 1B R&R (Part B) – EIE, GBIE, GEIE, AIE",
     location: "Singapore",
+    latitude: 1.3321,
+    longitude: 103.8589,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 62,
@@ -183,6 +221,8 @@ const projects = [
     id: "WSSX",
     name: "Wessex R&R",
     location: "Singapore",
+    latitude: 1.4189,
+    longitude: 103.8345,
     status: "Completed",
     statusColor: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
     progress: 54,
@@ -193,6 +233,8 @@ const projects = [
     id: "G3RRA",
     name: "R&R Group 3 Part A",
     location: "Singapore",
+    latitude: 1.3567,
+    longitude: 103.9432,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 38,
@@ -203,6 +245,8 @@ const projects = [
     id: "G3RRB",
     name: "R&R Group 3 Part B",
     location: "Singapore",
+    latitude: 1.3545,
+    longitude: 103.9501,
     status: "Planning",
     statusColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     progress: 18,
@@ -213,6 +257,8 @@ const projects = [
     id: "SAP3B2",
     name: "SAP3B2 Infra",
     location: "Singapore",
+    latitude: 1.2876,
+    longitude: 103.7234,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 71,
@@ -223,6 +269,8 @@ const projects = [
     id: "BGS",
     name: "Benoi-Gul Sewer (Construction)",
     location: "Singapore",
+    latitude: 1.3145,
+    longitude: 103.6754,
     status: "Hold",
     statusColor: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400",
     progress: 85,
@@ -233,6 +281,8 @@ const projects = [
     id: "BIP1",
     name: "Bulim Infra Phase 1 (Construction)",
     location: "Singapore",
+    latitude: 1.3456,
+    longitude: 103.7089,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 93,
@@ -243,6 +293,8 @@ const projects = [
     id: "DLN",
     name: "DLN Ramp (Construction)",
     location: "Singapore",
+    latitude: 1.2765,
+    longitude: 103.8234,
     status: "Planning",
     statusColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     progress: 67,
@@ -253,6 +305,8 @@ const projects = [
     id: "FABT",
     name: "Fascia A&A BIPE TIPA (Construction)",
     location: "Singapore",
+    latitude: 1.3612,
+    longitude: 103.9876,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 44,
@@ -263,6 +317,8 @@ const projects = [
     id: "JEG",
     name: "JEG (Construction)",
     location: "Singapore",
+    latitude: 1.4234,
+    longitude: 103.7654,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 79,
@@ -273,6 +329,8 @@ const projects = [
     id: "F1RR",
     name: "F1 R&R (Construction)",
     location: "Singapore",
+    latitude: 1.3087,
+    longitude: 103.6912,
     status: "Completed",
     statusColor: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
     progress: 88,
@@ -283,6 +341,8 @@ const projects = [
     id: "FPB",
     name: "Fascia Package B (Construction)",
     location: "Singapore",
+    latitude: 1.2987,
+    longitude: 103.7876,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 56,
@@ -293,6 +353,8 @@ const projects = [
     id: "SITC",
     name: "SITC FY21-22 (Construction)",
     location: "Singapore",
+    latitude: 1.3543,
+    longitude: 103.7654,
     status: "Completed",
     statusColor: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
     progress: 100,
@@ -303,6 +365,8 @@ const projects = [
     id: "CTL",
     name: "CleanTech Linkway (Construction)",
     location: "Singapore",
+    latitude: 1.3501,
+    longitude: 103.7589,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 61,
@@ -313,6 +377,8 @@ const projects = [
     id: "MIP2A",
     name: "Merbau Infra Ph2a (Construction)",
     location: "Singapore",
+    latitude: 1.3201,
+    longitude: 103.7198,
     status: "Planning",
     statusColor: "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400",
     progress: 73,
@@ -323,6 +389,8 @@ const projects = [
     id: "PRID1",
     name: "Pasir Ris Industrial Drive 1 Cul De Sac (Construction)",
     location: "Singapore",
+    latitude: 1.3712,
+    longitude: 103.9523,
     status: "Active",
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 49,
@@ -337,6 +405,7 @@ export default function Home() {
   const [typeFilter, setTypeFilter] = useState("All Project Types");
   const [gridColumns, setGridColumns] = useState(3);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   const toggleFavorite = (projectId: string) => {
     setFavorites(prev => {
@@ -490,6 +559,20 @@ export default function Home() {
         <div className="mb-6 text-sm text-muted-foreground">
           {filteredProjects.length} of {projects.length} projects shown
         </div>
+
+        {/* Singapore Map */}
+        <div className="mb-8">
+          <SingaporeMap
+            projects={filteredProjects}
+            onProjectClick={(project) => setSelectedProject(project)}
+          />
+        </div>
+
+        {/* Project Details Section - Unfurls below map */}
+        <ProjectDetailsSection
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
 
         {/* Project Grid */}
         <div
