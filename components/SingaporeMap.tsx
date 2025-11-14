@@ -2,12 +2,15 @@
 
 import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
+import { Maximize2, Minimize2 } from 'lucide-react';
 import type { Project } from '@/types/project';
 import 'leaflet/dist/leaflet.css';
 
 interface SingaporeMapProps {
   projects: Project[];
   onProjectClick: (project: Project) => void;
+  isExpanded?: boolean;
+  onToggle?: () => void;
 }
 
 // Custom marker icon
@@ -36,13 +39,35 @@ const createCustomIcon = (status: string) => {
   });
 };
 
-export function SingaporeMap({ projects, onProjectClick }: SingaporeMapProps) {
+export function SingaporeMap({ projects, onProjectClick, isExpanded = true, onToggle }: SingaporeMapProps) {
   // Singapore center coordinates
   const center: [number, number] = [1.3521, 103.8198];
 
+  // Dynamic height based on expanded state
+  const height = isExpanded ? 'h-[500px]' : 'h-full';
+
+  // Use key to force re-render when shrinking to reset view
+  const mapKey = isExpanded ? 'expanded' : 'shrunk';
+
   return (
-    <div className="w-full h-[500px] rounded-lg overflow-hidden border shadow-lg">
+    <div className={`relative w-full ${height} rounded-lg overflow-hidden border shadow-lg transition-all duration-300`}>
+      {/* Toggle Button */}
+      {onToggle && (
+        <button
+          onClick={onToggle}
+          className="absolute top-3 right-3 z-[1000] p-2 rounded-md bg-background/90 backdrop-blur-sm border shadow-md hover:bg-background transition-all"
+          aria-label={isExpanded ? "Shrink map" : "Expand map"}
+        >
+          {isExpanded ? (
+            <Minimize2 className="h-4 w-4" />
+          ) : (
+            <Maximize2 className="h-4 w-4" />
+          )}
+        </button>
+      )}
+
       <MapContainer
+        key={mapKey}
         center={center}
         zoom={11}
         style={{ height: '100%', width: '100%' }}

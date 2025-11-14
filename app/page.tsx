@@ -407,6 +407,7 @@ export default function Home() {
   const [gridColumns, setGridColumns] = useState(3);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isMapExpanded, setIsMapExpanded] = useState(true);
 
   const toggleFavorite = (projectId: string) => {
     setFavorites(prev => {
@@ -561,13 +562,17 @@ export default function Home() {
           {filteredProjects.length} of {projects.length} projects shown
         </div>
 
-        {/* Singapore Map */}
-        <div className="mb-8">
-          <SingaporeMap
-            projects={filteredProjects}
-            onProjectClick={(project) => setSelectedProject(project)}
-          />
-        </div>
+        {/* Singapore Map - Expanded (full width above grid) */}
+        {isMapExpanded && (
+          <div className="mb-8">
+            <SingaporeMap
+              projects={filteredProjects}
+              onProjectClick={(project) => setSelectedProject(project)}
+              isExpanded={isMapExpanded}
+              onToggle={() => setIsMapExpanded(!isMapExpanded)}
+            />
+          </div>
+        )}
 
         {/* Project Details Section - Unfurls below map */}
         <ProjectDetailsSection
@@ -582,6 +587,18 @@ export default function Home() {
             gridTemplateColumns: `repeat(${gridColumns}, minmax(0, 1fr))`
           }}
         >
+          {/* Singapore Map - Shrunk (first item in grid) */}
+          {!isMapExpanded && (
+            <Card className="relative overflow-hidden flex flex-col">
+              <SingaporeMap
+                projects={filteredProjects}
+                onProjectClick={(project) => setSelectedProject(project)}
+                isExpanded={isMapExpanded}
+                onToggle={() => setIsMapExpanded(!isMapExpanded)}
+              />
+            </Card>
+          )}
+
           {filteredProjects.map((project) => (
             <Card key={project.id} className="relative overflow-hidden transition-shadow hover:shadow-lg flex flex-col">
               <div className="flex-1 overflow-hidden">
