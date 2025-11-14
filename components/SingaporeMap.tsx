@@ -2,27 +2,8 @@
 
 import { MapContainer, TileLayer, Marker, Tooltip } from 'react-leaflet';
 import L from 'leaflet';
+import type { Project } from '@/types/project';
 import 'leaflet/dist/leaflet.css';
-
-interface Project {
-  id: string;
-  name: string;
-  location: string;
-  latitude: number;
-  longitude: number;
-  status: string;
-  statusColor: string;
-  progress: number;
-  category: string;
-  image: string;
-  users?: number;
-  moreUsers?: number;
-  companies?: string[];
-  totalDocs?: number;
-  pendingDocs?: number;
-  startDate?: string;
-  endDate?: string;
-}
 
 interface SingaporeMapProps {
   projects: Project[];

@@ -3,26 +3,7 @@
 import { X, Users as UsersIcon, Building, FileText, Calendar, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-
-interface Project {
-  id: string;
-  name: string;
-  location: string;
-  latitude: number;
-  longitude: number;
-  status: string;
-  statusColor: string;
-  progress: number;
-  category: string;
-  image: string;
-  users?: number;
-  moreUsers?: number;
-  companies?: string[];
-  totalDocs?: number;
-  pendingDocs?: number;
-  startDate?: string;
-  endDate?: string;
-}
+import type { Project } from "@/types/project";
 
 interface ProjectDetailsSectionProps {
   project: Project | null;

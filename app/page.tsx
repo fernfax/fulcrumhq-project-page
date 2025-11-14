@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import dynamic from 'next/dynamic';
 import { ProjectDetailsSection } from "@/components/ProjectDetailsSection";
+import type { Project } from "@/types/project";
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -18,7 +19,7 @@ const SingaporeMap = dynamic(
   { ssr: false }
 );
 
-const projects = [
+const projects: Project[] = [
   {
     id: "AMKI",
     name: "Ang Mo Kio Infra",
@@ -405,7 +406,7 @@ export default function Home() {
   const [typeFilter, setTypeFilter] = useState("All Project Types");
   const [gridColumns, setGridColumns] = useState(3);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const toggleFavorite = (projectId: string) => {
     setFavorites(prev => {
