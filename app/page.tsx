@@ -778,12 +778,14 @@ export default function Home() {
               {/* Navigation Arrows - Bottom of Card */}
               <div className="flex justify-center gap-2 py-2 flex-shrink-0 border-t">
                 <button
+                  onClick={(e) => e.stopPropagation()}
                   className={`swiper-button-prev-${project.id} flex h-8 w-8 items-center justify-center rounded-full bg-background hover:bg-muted border border-border transition-all cursor-pointer`}
                   aria-label="Previous slide"
                 >
                   <ChevronLeft className="h-4 w-4" />
                 </button>
                 <button
+                  onClick={(e) => e.stopPropagation()}
                   className={`swiper-button-next-${project.id} flex h-8 w-8 items-center justify-center rounded-full bg-background hover:bg-muted border border-border transition-all cursor-pointer`}
                   aria-label="Next slide"
                 >
