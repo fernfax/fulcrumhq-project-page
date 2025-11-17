@@ -136,3 +136,17 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Leaflet tooltip customizations */
+.leaflet-tooltip {
+  white-space: normal !important;
+  max-width: none !important;
+}
+
+.leaflet-tooltip.custom-tooltip {
+  padding: 0 !important;
+  background: white !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 12px !important;
+}

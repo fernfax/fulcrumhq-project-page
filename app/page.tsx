@@ -31,6 +31,7 @@ const projects: Project[] = [
     progress: 68,
     category: "Construction",
     image: "/project-images/2020_aerial_view_of_punggol_digital_district.jpg",
+    description: "Major infrastructure upgrade for Ang Mo Kio industrial estate, including road networks, drainage systems, and utility connections to support future development.",
     users: 5,
     moreUsers: 7,
     companies: ['Main Contractor Ltd', 'Design Consultants', 'Engineering Partners'],
@@ -50,6 +51,7 @@ const projects: Project[] = [
     progress: 45,
     category: "Design",
     image: "/project-images/jtc-space-tuas-hero-2.jpg",
+    description: "Infrastructure development for Tuas Link 4 industrial zone, featuring advanced logistics facilities and seamless MRT connectivity for enhanced industrial operations.",
     users: 4,
     moreUsers: 3,
     companies: ['Design Consultants', 'Engineering Partners'],
@@ -69,6 +71,7 @@ const projects: Project[] = [
     progress: 72,
     category: "Construction",
     image: "/project-images/img_story127_1.jpg",
+    description: "Comprehensive infrastructure works along Loyang Drive North corridor, including road widening, smart traffic systems, and underground utilities.",
     startDate: "Jun 2023",
     endDate: "Mar 2025",
   },
@@ -83,6 +86,7 @@ const projects: Project[] = [
     progress: 22,
     category: "CENTEX",
     image: "/project-images/CPID.png",
+    description: "New electrical substation to meet growing power demands in Loyang North industrial cluster, with capacity for future expansion.",
     startDate: "Feb 2024",
     endDate: "Aug 2025",
   },
@@ -97,6 +101,7 @@ const projects: Project[] = [
     progress: 35,
     category: "Design",
     image: "/project-images/2020_artist_impression_of_sungei_kadut_central.jpg",
+    description: "Design phase for Aerospace 4 development, creating specialized facilities for aircraft MRO and aerospace manufacturing companies.",
   },
   {
     id: "BP2C",
@@ -109,6 +114,7 @@ const projects: Project[] = [
     progress: 58,
     category: "Construction",
     image: "/project-images/bulim-phase-2-hero-1.jpg",
+    description: "Phase 2 main infrastructure construction at Bulim industrial estate, establishing foundational utilities and access roads for new manufacturing clusters.",
   },
   {
     id: "BP2D",
@@ -121,6 +127,7 @@ const projects: Project[] = [
     progress: 42,
     category: "Design",
     image: "/project-images/bulim-phase-2-hero-1.jpg",
+    description: "Multi-disciplinary design works for Bulim Phase 2, integrating sustainable infrastructure solutions and smart estate management systems.",
   },
   {
     id: "AMK2D",
@@ -132,7 +139,8 @@ const projects: Project[] = [
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 28,
     category: "Design",
-    image: "/project-images/Kienta@-Tampines-JTC-NanoSpace-scaled.jpg",
+    image: "/project-images/Kienta-Tampines-JTC-NanoSpace-scaled.jpg",
+    description: "Design of flexible industrial spaces at Ang Mo Kio 2, catering to SMEs and startups with modular, scalable workspace solutions.",
   },
   {
     id: "KAEC",
@@ -145,6 +153,7 @@ const projects: Project[] = [
     progress: 65,
     category: "Construction",
     image: "/project-images/dream_factories_main_banner.jpg",
+    description: "Infrastructure renewal at Kolam Ayer industrial estate, modernizing drainage, roads, and utilities to support light industrial activities.",
   },
   {
     id: "KAED",
@@ -157,6 +166,7 @@ const projects: Project[] = [
     progress: 51,
     category: "Design",
     image: "/project-images/dream_factories_main_banner.jpg",
+    description: "Completed design package for Kolam Ayer Estate improvements, incorporating green building standards and efficient space utilization.",
   },
   {
     id: "ARPE",
@@ -169,6 +179,7 @@ const projects: Project[] = [
     progress: 83,
     category: "CENTEX",
     image: "/project-images/jtc-space-tuas-hero-2.jpg",
+    description: "Precinct-wide enhancements at Ayer Rajah including landscape improvements, connectivity upgrades, and amenity provisions for workers.",
   },
   {
     id: "BLS",
@@ -181,6 +192,7 @@ const projects: Project[] = [
     progress: 47,
     category: "Construction",
     image: "/project-images/de458ead54cd54a724463bbbc1c70c9eefd566155d48225c90832c946b662830.webp",
+    description: "New mixed-use development at Bulim Square, combining industrial spaces with retail amenities to create a vibrant work-live environment.",
   },
   {
     id: "AMGI2A",
@@ -193,6 +205,7 @@ const projects: Project[] = [
     progress: 91,
     category: "CENTEX",
     image: "/project-images/JTC-Timmac.jpg",
+    description: "Soil stabilization and ground improvement works to prepare land for heavy industrial development along Ayer Merbau Road.",
   },
   {
     id: "RRG1BA",
@@ -205,6 +218,7 @@ const projects: Project[] = [
     progress: 76,
     category: "Design",
     image: "/project-images/CPID.png",
+    description: "Repair and redecoration works for Mechanical & Electrical infrastructure systems in Group 1B industrial buildings.",
   },
   {
     id: "RRG1BB",
@@ -217,6 +231,7 @@ const projects: Project[] = [
     progress: 62,
     category: "Construction",
     image: "/project-images/2020_artist_impression_of_sungei_kadut_central.jpg",
+    description: "Comprehensive R&R works covering electrical, general building, and architectural improvements for multiple industrial estates.",
   },
   {
     id: "WSSX",
@@ -229,6 +244,7 @@ const projects: Project[] = [
     progress: 54,
     category: "Design",
     image: "/project-images/The-LakeGarden-Residences-Panoramic-View-min.jpeg",
+    description: "Completed repair and redecoration project for Wessex estate, enhancing building facades and common areas.",
   },
   {
     id: "G3RRA",
@@ -241,6 +257,7 @@ const projects: Project[] = [
     progress: 38,
     category: "CENTEX",
     image: "/project-images/2020_aerial_view_of_punggol_digital_district.jpg",
+    description: "First phase of Group 3 repair and redecoration, focusing on structural repairs and waterproofing systems.",
   },
   {
     id: "G3RRB",
@@ -253,6 +270,7 @@ const projects: Project[] = [
     progress: 18,
     category: "Design",
     image: "/project-images/jtc-cleantech-three-cleantech-park-aerial-view-2-1.png",
+    description: "Design phase for Group 3 Part B, planning interior refurbishments and energy efficiency upgrades.",
   },
   {
     id: "SAP3B2",
@@ -265,6 +283,7 @@ const projects: Project[] = [
     progress: 71,
     category: "Construction",
     image: "/project-images/img_story127_1.jpg",
+    description: "Strategic infrastructure development for SAP3B2 zone, creating advanced manufacturing hub with specialized utilities.",
   },
   {
     id: "BGS",
@@ -277,6 +296,7 @@ const projects: Project[] = [
     progress: 85,
     category: "Construction",
     image: "/project-images/dream_factories_main_banner.jpg",
+    description: "Major sewer line construction connecting Benoi and Gul industrial areas, improving wastewater management capacity.",
   },
   {
     id: "BIP1",
@@ -289,6 +309,7 @@ const projects: Project[] = [
     progress: 93,
     category: "Construction",
     image: "/project-images/bulim-phase-2-hero-1.jpg",
+    description: "Near-completion Phase 1 infrastructure at Bulim, establishing primary road networks and utility corridors.",
   },
   {
     id: "DLN",
@@ -301,6 +322,7 @@ const projects: Project[] = [
     progress: 67,
     category: "CENTEX",
     image: "/project-images/JTC-Timmac.jpg",
+    description: "Construction of dedicated logistics ramp to improve heavy vehicle access and reduce traffic congestion.",
   },
   {
     id: "FABT",
@@ -312,7 +334,8 @@ const projects: Project[] = [
     statusColor: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
     progress: 44,
     category: "Design",
-    image: "/project-images/Kienta@-Tampines-JTC-NanoSpace-scaled.jpg",
+    image: "/project-images/Kienta-Tampines-JTC-NanoSpace-scaled.jpg",
+    description: "Facade additions and alterations for BIPE TIPA buildings, modernizing exterior appearance and thermal performance.",
   },
   {
     id: "JEG",
@@ -325,6 +348,7 @@ const projects: Project[] = [
     progress: 79,
     category: "Construction",
     image: "/project-images/2020_artist_impression_of_sungei_kadut_central.jpg",
+    description: "JEG construction project delivering new industrial facilities with integrated green features and smart building systems.",
   },
   {
     id: "F1RR",
@@ -337,6 +361,7 @@ const projects: Project[] = [
     progress: 88,
     category: "Construction",
     image: "/project-images/jtc-space-tuas-hero-2.jpg",
+    description: "Completed repair and redecoration of F1 industrial cluster, extending building lifespan and improving functionality.",
   },
   {
     id: "FPB",
@@ -349,6 +374,7 @@ const projects: Project[] = [
     progress: 56,
     category: "CENTEX",
     image: "/project-images/de458ead54cd54a724463bbbc1c70c9eefd566155d48225c90832c946b662830.webp",
+    description: "Package B facade works covering multiple buildings, including cladding replacement and weatherproofing improvements.",
   },
   {
     id: "SITC",
@@ -361,6 +387,7 @@ const projects: Project[] = [
     progress: 100,
     category: "Construction",
     image: "/project-images/jtc-cleantech-three-cleantech-park-aerial-view-2-1.png",
+    description: "Successfully completed SITC FY21-22 construction program, delivering all planned infrastructure improvements on schedule.",
   },
   {
     id: "CTL",
@@ -373,6 +400,7 @@ const projects: Project[] = [
     progress: 61,
     category: "Design",
     image: "/project-images/jtc-cleantech-three-cleantech-park-aerial-view-2-1.png",
+    description: "Covered linkway connecting CleanTech Park facilities, providing sheltered pedestrian access with integrated cycling paths.",
   },
   {
     id: "MIP2A",
@@ -385,6 +413,7 @@ const projects: Project[] = [
     progress: 73,
     category: "Construction",
     image: "/project-images/img_story127_1.jpg",
+    description: "Phase 2a infrastructure development at Merbau industrial area, expanding capacity for petrochemical and process industries.",
   },
   {
     id: "PRID1",
@@ -397,6 +426,7 @@ const projects: Project[] = [
     progress: 49,
     category: "Design",
     image: "/project-images/CPID.png",
+    description: "Road reconfiguration creating cul-de-sac layout at Pasir Ris Industrial Drive 1, improving traffic flow and safety.",
   },
 ];
 
@@ -655,25 +685,15 @@ export default function Home() {
                     </div>
 
                     <div className={gridColumns >= 5 ? 'px-3 pb-3 space-y-2' : 'px-6 pb-6 space-y-3'}>
-                      {/* Progress Bar */}
-                      <div className="space-y-1.5">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">Progress</span>
-                          <span className="font-medium">{project.progress}%</span>
-                        </div>
-                        <div className={`${gridColumns >= 5 ? 'h-1.5' : 'h-2'} w-full overflow-hidden rounded-full bg-muted`}>
-                          <div
-                            className="h-full transition-all"
-                            style={{
-                              width: `${project.progress}%`,
-                              backgroundColor: getProgressColor(project.progress)
-                            }}
-                          />
-                        </div>
-                      </div>
+                      {/* Project Description */}
+                      {project.description && (
+                        <p className={`${gridColumns >= 5 ? 'text-[10px] line-clamp-2' : 'text-xs line-clamp-3'} text-muted-foreground leading-relaxed`}>
+                          {project.description}
+                        </p>
+                      )}
 
                       {/* Project Category */}
-                      <div className={`flex items-center justify-between ${gridColumns >= 5 ? 'pt-1' : 'pt-2'}`}>
+                      <div className={`flex items-center justify-between`}>
                         <div className={gridColumns >= 5 ? 'flex -space-x-1' : 'flex -space-x-2'}>
                           <div className={`flex ${gridColumns >= 5 ? 'h-5 w-5 text-[10px]' : 'h-7 w-7 text-xs'} items-center justify-center rounded-full bg-orange-500 font-medium text-white ring-2 ring-background`}>
                             JS
